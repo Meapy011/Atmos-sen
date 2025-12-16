@@ -14,8 +14,8 @@
 
 ### Checking for Updates and making sure Make is installed
 
-	`sudo apt update
-	`sudo apt install build-essential
+	sudo apt update -y
+	sudo apt install build-essential -y
 
 ## Compiling Makefile
 
