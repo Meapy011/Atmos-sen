@@ -10,7 +10,6 @@ SRCS = main.c \
        src/sfa3x_i2c.c \
        src/sen66_i2c.c
 
-
 OBJS = $(SRCS:.c=.o)
 TARGET = multi-sensirion
 
@@ -19,7 +18,7 @@ TARGET = multi-sensirion
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ -lcurl
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
