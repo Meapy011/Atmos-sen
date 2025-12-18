@@ -11,7 +11,7 @@ SRCS = main.c \
        src/sen66_i2c.c
 
 OBJS = $(SRCS:.c=.o)
-TARGET = multi-sensirion
+TARGET = sensors-db
 
 .PHONY: all clean
 
