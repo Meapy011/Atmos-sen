@@ -1,17 +1,23 @@
 #!/bin/bash
 
-#Updates and dependency install
+#Updates
 sudo apt update
 sudo apt upgrade -y
-sudo apt install curl gnupg2 lsb-release -y
-#Adding GPG key
-curl -sL https://repos.influxdata.com/influxdb.key | sudo gpg --dearmor -o /usr/share/keyrings/influxdb-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/influxdb-archive-keyring.gpg] https://repos.influxdata.com/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
-#Installing Influxdb
-sudo apt update
-sudo apt install influxdb=1.8.* -y
-#Enabling service and starting
-sudo systemctl enable influxdb
-sudo systemctl start influxdb
-#Checking status
-sudo systemctl status influxdb
+#Getting 1.8 release
+cd /tmp
+wget https://dl.influxdata.com/influxdb/releases/influxdb-1.8.10_linux_armhf.tar.gz
+#Extract and Install
+tar xzf influxdb-1.8.10_linux_armhf.tar.gz
+cd influxdb-1.8.10-1
+sudo cp usr/bin/influx* /usr/local/bin/
+sudo mkdir -p /etc/influxdb /var/lib/influxdb
+sudo cp etc/influxdb/influxdb.conf /etc/influxdb/
+#setting up service file
+sudo cp influx1_8.service /etc/systemd/system/
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable influx1_8.service
+sudo systemctl start influx1_8.service
+#Checking version
+sudo systemctl status influx1_8.service
+
