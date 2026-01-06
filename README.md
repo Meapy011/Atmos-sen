@@ -1,6 +1,63 @@
 # Ras-Sensirion: C code for Sensirion Sensor Read out on Pi Terminal
 
-<img src="imgs/raspi.png">
+<center><img src="imgs/raspi.png><center>
+
+This document explains how to set up the Sen sensors to run on a Raspberry Pi using the provided code, and printing the readings to the terminal.
+
+## Supported sensors
+
+- SFA3X
+- SCD30
+- SEN44 
+- SEN55
+- SEN66
+
+## Setup Guide
+
+### Connecting the Sensor
+
+The sensor board cable has the five different connectors: VCC, GND, SDA, SCL, GND
+Use the following pins to connect your SEN5x:
+
+ *SenBoard* |    *Raspberry Pi*           |   *Jumper Wire*   |
+ :--------: | :-------------------------: | :---------------: |
+   VCC      |        Pin 2 (5V)           |   Red             |
+   GND      |        Pin 6                |   Black           |
+   SDA      |        Pin 3                |   Green           |
+   SCL      |        Pin 5                |   Yellow          |
+   GND      |        Pin 9 (GND for I2C)  |   Blue            |
+
+<center><img src="imgs/GPIO-Pinout-Diagram.png" width="900px"></center>
+
+
+
+| *Pin* | *Name* | *Description*                   | *Comments*                       |
+|-------|--------|---------------------------------|----------------------------------|
+| 1     | GND    | Ground                          |                                  |
+| 2     | GND    | Ground                          |                                  |
+| 3     | SCL    | I2C: Serial clock input         | TTL 5V and LVTTL 3.3V compatible |
+| 4     | SDA    | I2C: Serial data input / output | TTL 5V and LVTTL 3.3V compatible |
+| 5     | NC     | Do not connect                  |                                  |
+
+
+### Raspberry Pi
+
+- [Install the Raspberry Pi OS on to your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up)
+- [Enable the I2C interface in the raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
+- Download the driver for the [Sensirion Github Page](https://github.com/Sensirion/raspberry-pi-i2c-sen5x) and extract the `.zip` on your Raspberry Pi
+- Compile the driver
+    1. Open a [terminal](https://www.raspberrypi.org/documentation/usage/terminal/?)
+    2. Navigate to the driver directory. E.g. `cd ~/Ras-sensirion/Sensor-examble`
+    3. Run the `./Build` script to check for updates, make sure Build essential tools are installed and compile the driver
+
+       Output:
+       ```
+       
+       ```
+- Test your connected sensor
+    - Run `./test-sensors` in the same directory you used to
+      compile the driver.
+
 
 ## Resources:
 
@@ -10,30 +67,4 @@
 - [SCD30 Docs](https://github.com/Sensirion/raspberry-pi-i2c-scd30)
 - [SFA30 Docs](https://github.com/Sensirion/raspberry-pi-uart-sfa3x)
 - [SEN66 Docs](https://github.com/Sensirion/raspberry-pi-i2c-sen66)
-
-## Setup your Pi: 
-
-
-### Checking for Updates and making sure Make is installed
-
-	sudo apt update -y
-	sudo apt install build-essential -y
-
-## Compiling Makefile
-
-   1. Open a [terminal](https://www.raspberrypi.org/documentation/usage/terminal/)
-   2. Navigate to the directory. E.g. `cd ~/Ras-Sensirion`
-   3. Run the `make` command to compile the driver
-
-       Output:
-       ```
-       gcc -Wall -Iinclude -O2 -c main.c -o main.o
-       gcc -Wall -Iinclude -O2 -o multi-sensirion main.o src/sensirion_i2c_hal.o src/sensirion_i2c.o src/sensirion_common.o src/sen44_i2c.o 
-       src/scd30_i2c.o src/sfa3x_i2c.o
-
-       ```
-
-## Test your connected sensor
-
-   - Run `./multi-sensirion` in the same directory you used to compile the Program
 
