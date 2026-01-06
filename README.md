@@ -29,8 +29,6 @@ Use the following pins to connect your Board
 
 <center><img src="imgs/GPIO-Pinout-Diagram.png" width="900px"></center>
 
-| *Connector J3 Pinout*                                                               |
-|-------|--------|---------------------------------|----------------------------------|
 | *Pin* | *Name* | *Description*                   | *Comments*                       |
 |-------|--------|---------------------------------|----------------------------------|
 | 1     | GND    | Ground                          |                                  |
