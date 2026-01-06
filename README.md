@@ -17,7 +17,7 @@ This document explains how to set up the Sen sensors to run on a Raspberry Pi us
 ### Connecting the Sensor
 
 The sensor board cable has the five different connectors: VCC, GND, SDA, SCL, GND
-Use the following pins to connect your SEN5x:
+Use the following pins to connect your Board
 
 | *SenBoard* |    *Raspberry Pi*           |   *Jumper Wire*   |
 |------------|-----------------------------|-------------------|
