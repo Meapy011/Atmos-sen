@@ -1,6 +1,6 @@
 # Ras-Sensirion: C code for Sensirion Sensor Read out on Pi Terminal
 
-<center><img src="imgs/raspi.png><center>
+<center><img src="imgs/raspi.png" width=800px" ><center>
 
 This document explains how to set up the Sen sensors to run on a Raspberry Pi using the provided code, and printing the readings to the terminal.
 
@@ -27,10 +27,9 @@ Use the following pins to connect your Board
    SCL    |        Pin 5                |   Yellow          |
    SEL    |        Pin 9 (GND for I2C)  |   Blue            |
 
-
 <center><img src="imgs/GPIO-Pinout-Diagram.png" width="900px"></center>
 
-
+<center><img src="imgs/Board-Pinout-Diagram.png" width="900px"></center>
 
 | *Pin* | *Name* | *Description*                   | *Comments*                       |
 |-------|--------|---------------------------------|----------------------------------|
