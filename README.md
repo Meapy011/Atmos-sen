@@ -19,14 +19,14 @@ This document explains how to set up the Sen sensors to run on a Raspberry Pi us
 The sensor board cable has the five different connectors: VCC, GND, SDA, SCL, GND
 Use the following pins to connect your Board
 
+ *Board*  |    *Raspberry Pi*           |   *Jumper Wire*   |
+ :------: | :-------------------------: | :---------------: |
+   VCC    |        Pin 2 (5V)           |   Red             |
+   GND    |        Pin 6                |   Black           |
+   SDA    |        Pin 3                |   Green           |
+   SCL    |        Pin 5                |   Yellow          |
+   SEL    |        Pin 9 (GND for I2C)  |   Blue            |
 
-| *SenBoard* |    *Raspberry Pi*           |   *Jumper Wire*   |
-|------------|-----------------------------|-------------------|
-|   VCC      |        Pin 2 (5V)           |   Red             |
-|   GND      |        Pin 6                |   Black           |
-|   SDA      |        Pin 3                |   Green           |
-|   SCL      |        Pin 5                |   Yellow          |
-|   GND      |        Pin 9 (GND for I2C)  |   Blue            |
 
 <center><img src="imgs/GPIO-Pinout-Diagram.png" width="900px"></center>
 
@@ -45,7 +45,7 @@ Use the following pins to connect your Board
 
 - [Install the Raspberry Pi OS on to your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up)
 - [Enable the I2C interface in the raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
-- Download the driver for the [Sensirion Github Page](https://github.com/Sensirion/raspberry-pi-i2c-sen5x) and extract the `.zip` on your Raspberry Pi
+- Download the driver for the [Sensor Board](https://github.com/Meapy011/Ras-Sensirion/tree/main) and extract the `.zip` on your Raspberry Pi
 - Compile the driver
     1. Open a [terminal](https://www.raspberrypi.org/documentation/usage/terminal/?)
     2. Navigate to the driver directory. E.g. `cd ~/Ras-sensirion/Sensor-examble`
