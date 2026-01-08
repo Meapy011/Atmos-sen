@@ -22,12 +22,10 @@ all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)
-	@echo "Cleaning up object files..."
 	rm -f $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "Cleaning all object files and binary..."
 	rm -f $(OBJS) $(TARGET)
